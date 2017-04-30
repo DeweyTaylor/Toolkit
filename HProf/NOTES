@@ -1,4 +1,9 @@
+FIRST AND FOREMOST!!!
+The original code for this is really old and could use some serious cleanup. It's messy. You are warned.
+
 To Use:
+
+copy the "profiler" directory to your project
 
 add:
 	#include "profiler/profiler.h"
@@ -21,3 +26,5 @@ at the beginning of each zone, call Profile_Scope(zonename);
 		macro)
 	Profiler_Update() then sends a list of these objects to the Profiler Window for
 		display and further processing
+
+you may need to add -Wno-unused to your command line while building
