@@ -1,0 +1,23 @@
+To Use:
+
+add:
+	#include "profiler/profiler.h"
+	to any files that need to use the profiler
+
+add a BMessageRunner to the main window that will call the update function
+	the message from the runner should be handled by calling the
+	Profiler_Update() function
+
+for each zone (function generally, block specifically) to be profiled, at the top of
+	the file where they are defined, add:
+		Define_Zone(zonename)
+
+at the beginning of each zone, call Profile_Scope(zonename);
+	this instantiates an object which begins the timing process
+	when this object goes out of scope, it is destructed which takes the time again
+		and computes the difference between the two, deriving the total execution
+		time
+	this time is then stored in an object for that zone (created in the Define_Zone()
+		macro)
+	Profiler_Update() then sends a list of these objects to the Profiler Window for
+		display and further processing
