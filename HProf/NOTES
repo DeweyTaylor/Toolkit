@@ -1,5 +1,8 @@
 FIRST AND FOREMOST!!!
 The original code for this is really old and could use some serious cleanup. It's messy. You are warned.
+Also, it should, but may not *entirely* be thread-safe (if you were to profile multiple windows simultaneously for instance)
+	but I was originally moving in that direction... logically, it will probably reset counts from other threads as each is updated,
+	but that shouldn't cause corruption
 
 To Use:
 
