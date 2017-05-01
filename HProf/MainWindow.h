@@ -4,6 +4,8 @@
 #include <InterfaceKit.h>
 #include <MessageRunner.h>
 
+
+
 #define	PROFILER_UPDATE_MSG	'pupd'
 
 class MainWindow : public BWindow

@@ -16,6 +16,7 @@ DEPENDENCY=profiler/ProfWindow.h|/boot/system/develop/headers/private/interface/
 SOURCEFILE=profiler/DataView.cpp
 DEPENDENCY=profiler/DataView.h|/boot/system/develop/headers/private/interface/ColumnListView.h|/boot/system/develop/headers/private/interface/ColumnTypes.h|/boot/system/develop/headers/private/interface/ColumnListView.h
 SOURCEFILE=profiler/DataView.h
+SOURCEFILE=profiler/ProfWindow.h
 LOCALINCLUDE=profiler
 LOCALINCLUDE=.
 SYSTEMINCLUDE=/boot/develop/headers/be

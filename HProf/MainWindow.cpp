@@ -5,7 +5,6 @@
 #include <MenuItem.h>
 #include <View.h>
 
-
 #include "profiler/profiler.h"
 
 Define_Zone(MainWindowCTOR)
@@ -20,6 +19,7 @@ MainWindow::MainWindow(void)
 	fMenuBar = new BMenuBar(r,"menubar");
 	AddChild(fMenuBar);
 	fRunner = new BMessageRunner(this, new BMessage(PROFILER_UPDATE_MSG), 16666);
+	PTRACE("Main Window Constructor");
 }
 
 
@@ -27,6 +27,7 @@ void
 MainWindow::MessageReceived(BMessage *msg)
 {
 	Profile_Scope(MainWindowMessageReceived);
+	PTRACE("Message Received");
 	switch (msg->what)
 	{
 		case PROFILER_UPDATE_MSG:

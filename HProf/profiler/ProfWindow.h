@@ -19,7 +19,7 @@ using namespace std;
 
 #define	PROFILER_ADD_PROGRAM_ZONE_MSG	'apzn'
 #define PROFILER_UPDATE_ZONE_DATA_MSG	'upzn'
-
+#define PROFILER_TRACE_MSG				'ptrm'
 
 class ProfilerWindow : public BWindow
 {
@@ -32,6 +32,10 @@ class ProfilerWindow : public BWindow
 		BView				*fGraphView;
 		ProfilerDataView	*fDataView;
 		ProfilerDataUnit	*fData;
+		BTabView			*fTabView;
+		BTab				*fProfilerTab;
+		BTab				*fTraceTab;
+		BTextView			*fTraceView;
 };
 
 #endif // PROFWINDOW_H

@@ -5,6 +5,23 @@
 #include "profiler.h"
 #include <sstream>
 
+extern ProfilerWindow*	__Profiler_Window = NULL;
+
+extern Profile_Stack_Item* __Profile_Stack = NULL; // the head to the stack list
+extern Zone_List_Item* __Profiler_Zone_List = NULL; // the list of Program_Zone items used by the Profiler_Update function
+
+extern void ProfTrace(BString str)
+{
+	if (__Profiler_Window == NULL)
+	{
+		cout << "Error sending Trace" << endl;
+		return;
+	}
+	BMessage* msg = new BMessage(PROFILER_TRACE_MSG);
+	msg->AddString("trace", str);
+	__Profiler_Window->PostMessage(msg);
+}
+
 Program_Zone::Program_Zone(const char* name)
 {
 	Zone_List_Item* NewItem = new Zone_List_Item; // create the item

@@ -17,9 +17,14 @@
 
 #include "ProfWindow.h"
 
-static ProfilerWindow*	__Profiler_Window = NULL;
-
 using namespace std;
+
+
+//static void ProfTrace(const char* str) { ProfTrace(BString(str)); }
+//static void ProfTrace(string str) { ProfTrace(BString(str.c_str())); }
+extern void ProfTrace(BString);
+
+#define PTRACE ProfTrace
 
 inline uint64_t os_fast_get_integer_timestamp()
 {
@@ -51,7 +56,7 @@ struct Zone_List_Item // converts Program_Zones objects into a linked list
 	Zone_List_Item* Next;
 };
 
-static Zone_List_Item* __Profiler_Zone_List = NULL; // the list of Program_Zone items used by the Profiler_Update function
+
 
 class Profile_Scope_Var // dummy object for handling entering and exiting Program_Zones
 {
@@ -66,7 +71,7 @@ struct Profile_Stack_Item // the stack used by Profile_Scope_Var to manage self-
 	Profile_Stack_Item* Next;
 };
 
-static Profile_Stack_Item* __Profile_Stack = NULL; // the head to the stack list
+
 
 void Profiler_Update(); // the update functions... crunches numbers in the __Profiler_Zone_List and the (bool) determines whether the output is drawn or not
 
